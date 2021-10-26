@@ -22,12 +22,20 @@ function isEven(num) {
 		return true
 	} else if (num < 0) {
 		return false
+	} else if (num === 1 || num === -1) {
+		return false
 	} else {
-		return isEven(num - 2)
+		if (num > 0) {
+			return isEven(num - 2)
+		} else {
+			return isEven(num + 2)
+		}
 	}
 }
 console.log(isEven(60))
 console.log(isEven(75))
+console.log(isEven(60))
+console.log(isEven(-75))
 console.log('-----------------------------------------')
 console.log('-----------------------------------------')
 console.log('Подсчет букв')
