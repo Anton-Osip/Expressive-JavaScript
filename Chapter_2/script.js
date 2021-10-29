@@ -12,15 +12,9 @@ console.log("FizzBuzz")
 console.log("-----------------------------------------")
 
 for(let i = 0; i<=100;i++){
-	if(i%3===0 && i%7===0){
-		console.log("FizzBuzz")
-	}else if(i%3===0){
-		console.log("Fizz")
-	}else if(i%7===0){
-		console.log("Buzz")
-	}else{
-		console.log(i)
-	}
+	let str = '';
+	(i%3===0 && i%7===0)?str+="FizzBuzz":i%3===0?str+="Fizz":i%7===0?str+="Buzz":str+=i;
+	console.log(str)
 }
 console.log("-----------------------------------------")
 console.log("-----------------------------------------")
@@ -30,11 +24,7 @@ let a=8;
 for(let i = 0;i<a;i++){
 	let str = '';
 	for(let y = 0;y<a/2;y++){
-		if(i%2===0){
-			str+=" #"
-		}else{
-			str+="# "
-		}	
+		i%2===0?str+=" #":str+="# "
 	}
 	console.log(str)
 }
