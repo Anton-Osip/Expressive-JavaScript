@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			.wrapper {
+				width: 100vw;
+				height: 100vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				position: relative;
+			}
+			.sun-block {
+				position: relative;
+			}
+			.earth {
+				width: 75px;
+			}
+			.earth-block {
+				position: relative;
+				top: 25px;
+			}
+			.moon {
+				width: 25px;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="sun-block">
+				<img src="./sun.jpeg" alt="" class="sun" />
+				<div class="earth-block">
+					<img src="./earth.jpeg" alt="" class="earth" />
+					<img src="./moon.jpeg" alt="" class="moon" />
+				</div>
+			</div>
+		</div>
+		<script>
+			let earth = document.querySelector('.earth-block')
+			let moon = document.querySelector('.moon')
+			let angle = Math.PI / 2
+			function animateMoon(time, lastTime) {
+				if (lastTime != null) {
+					angle += (time - lastTime) * 0.001
+				}
+				moon.style.top = Math.sin(angle) * 50 + 25 + 'px'
+				moon.style.left = Math.cos(angle) * 50 + 25 + 'px'
+				requestAnimationFrame(newTime => animateMoon(newTime, time))
+			}
+			requestAnimationFrame(animateMoon)
+
+			function animate(time, lastTime) {
+				if (lastTime != null) {
+					angle += (time - lastTime) * 0.001
+				}
+				earth.style.top = Math.sin(angle) * 150 - 150 + 'px'
+				earth.style.left = Math.cos(angle) * 250 + 75 + 'px'
+				requestAnimationFrame(newTime => animate(newTime, time))
+			}
+			requestAnimationFrame(animate)
+		</script>
+	</body>
+</html>
